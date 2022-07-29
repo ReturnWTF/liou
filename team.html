@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <title>利欧万圣官网-团队配置</title>
+    <meta name="keywords" content="利欧万圣">
+    <meta name="description" content="利欧万圣">
+    <link rel="stylesheet" href="./css/vant.min.css">
+    <link rel="stylesheet" href="./css/global.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <!-- 小于IE10提示升级浏览器 -->
+    <script>
+        window.AESKey = '';
+        // 判断浏览器是否支持placeholder属性
+        function isSupportPlaceholder() {
+            var input = document.createElement('input');
+            return 'placeholder' in input;
+        };
+        (function() {
+            //判断是否是IE浏览器，包括Edge浏览器
+            function IEVersion() {
+                //取得浏览器的userAgent字符串
+                var userAgent = navigator.userAgent;
+                //判断是否IE浏览器
+                var isIE = userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1;
+                if (isIE) {
+                    var reIE = new RegExp("MSIE (\\d+\\.\\d+);");
+                    reIE.test(userAgent);
+                    var fIEVersion = parseFloat(RegExp["$1"]);
+                    if (fIEVersion < 10 || !isSupportPlaceholder()) {
+                        return true;
+                    }
+                } else {
+                    return false;
+                }
+            }
+            var tpl = ['<div style="padding:0;margin:0; position: fixed;top:0;left: 0;z-index: 1000;width: 100%;height: 100%;background-color: #fff;">',
+
+                '<div style="position: absolute;top: 50%;left: 0;width: 100%;margin-top: -60px;color:#333;font-size:20px;line-height:40px;text-align: center;">',
+
+                '<p>您正在使用的浏览器版本过低，为了您的最佳体验，请先升级您的浏览器。</p>',
+
+                '<p>如果您的浏览器是最新版本，请您使用该浏览器极速模式访问即可。</p>',
+
+                '<p><a style="color: #0187ff !important;" target="_blank" href="http://support.dmeng.net/upgrade-your-browser.html">立即升级</a></p>',
+
+                '</div>',
+
+                '</div>'
+
+            ].join('');
+            if (IEVersion()) {
+              document.write(tpl);
+            }
+        })();
+    </script>
+</head>
+<body>
+  <div style="position: fixed;top:0;left: 0;width: 100%;height: 100%;background:rgba(0,0,0,0.8);z-index:100000;" id="loading-box" class="flex-center">
+    <div class="loading-text box">
+        <div class="loader loader-01"></div>
+        <div style="font-size:16px;margin-top:20px;">
+            努力加载中请稍后..
+        </div>
+    </div>
+  </div>
+  <main class="w100 main-wrap relative page-5" id="app">
+   
+    <header class="nav flex-between">
+      <div class="n-left">
+        <img src="./images/logo.png" alt="" width="158" height="auto">
+      </div>
+      <ul class="n-right flex-between">
+        <li :class="['n-r-li' ,item.active?'active':'']" v-for="(item,index) in nav" :key="index">
+          <a :href="item.link" class="n-r-link">{{item.text}}</a>
+        </li>
+      </ul>
+    </header>
+
+    <header class="nav-mobile flex-between w100">
+      <div class="n-left">
+        <img src="./images/logo.png" alt="" width="158" height="auto" class="logo-img">
+      </div>
+      <div @click="changeNav">
+        <div v-if="iconFlage">
+          <van-icon name="ascending" size="34"  />
+        </div>
+        <div v-else>
+          <van-icon name="descending" size="34"/>
+        </div>
+      </div>
+      <van-popup v-model="iconFlage" position="top" :style="{ height: '50%','margin-top':'46px'}" :overlay="true" lockScroll="false" get-container="main"	class="nav-mobile-ul">
+        <ul class="n-right flex-between">
+          <li :class="['n-r-li' ,item.active?'active':'']" v-for="(item,index) in nav" :key="index">
+            <a :href="item.link" class="n-r-link">{{item.text}} ></a>
+          </li>
+        </ul>
+      </van-popup>
+    </header>
+
+
+    <div class="banner-1 flex-center">
+      <div class="w80 b1-text-wrap">
+        <div class="b1-t1-wrap inline">
+          <span>团队配置</span>
+          <span class="ml10">/</span>
+        </div>
+        <div class="b1-t2-wrap inline">
+          <span class="b1-text-2">Team</span>
+          <span class="b1-text-3">Configuration</span>
+        </div>
+      </div>
+    </div>
+    <div class="b1-bottom-box w80 relative">
+      <div class="b-b-block">从创意到产品策略—从内容热点到媒介转化</div>
+    </div>
+
+    <div class="banner-2 w80">
+      <div class="b2-t1-wrap text-center relative">
+        <div class="b2-t1-text text-left">
+          <span class="t1-title inline">运营团队</span>
+          <span class="t1-text inline ml40">运营团队120人，分布在上海、北京等地 </span>
+        </div>
+        <div class="w100 text-right b2-img-2-box mt20">
+          <img src="./images/page5/b2.png" width="80%" height="auto" class="b2-img-2">
+        </div>
+      </div>
+      <div class="b2-t2-wrap w100">
+        <div class="b2-t2-t1">
+          <div class="t2-title">
+            运营团队<br/>
+            100%具备<br/>
+            营销师资格证书
+          </div>
+          <div class="t2-text mt30">
+            优化运营团队下设运营组、攻坚组共120人，<br/>
+            成员均来自国内外专业名校、同行业优秀人才，<br/>
+            为超过1500个优质客户提供专业服务。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="banner-3 text-center relative w80">
+      <div class="w100 flex-between b3-lr-wrap">
+        <div class="b3-left-wrap">
+          <div class="b3-l-1">
+            <img src="./images/page5/b3.png" alt="" class="b3-img-1 rotate" width="100%" height="auto">
+            <div class="text-center">管理团队5%</div>
+          </div>
+          <div class="b3-l-2 mt40"> 
+            能够洞察行业的走势，提出行业挖掘与开拓策略并推进计划<br/>
+            实施；熟悉行业受众行为特点，并能够结合受众动向，为客户<br/>
+            提供符合场景目标针对性的营销方案的指导建议
+          </div>
+        </div>
+        <div class="b3-right-wrap flex-between">
+          <div class="w100 r-title">优势板块</div>
+          <div class="r-cell-item">
+            <img src="./images/page5/b4.png" alt="" class="inline" width="60" height="auto">
+            <span class="inline ml20">金融产品</span>
+            <span class="c-i-icon"></span>
+          </div>
+          <div class="r-cell-item">
+            <img src="./images/page5/b5.png" alt="" class="inline" width="60" height="auto">
+            <span class="inline ml20">电商产品</span>
+            <span class="c-i-icon"></span>
+          </div>
+          <div class="r-cell-item">
+            <img src="./images/page5/b6.png" alt="" class="inline" width="60" height="auto">
+            <span class="inline ml20">文娱产品</span>
+            <span class="c-i-icon"></span>
+          </div>
+          <div class="r-cell-item">
+            <img src="./images/page5/b7.png" alt="" class="inline" width="60" height="auto">
+            <span class="inline ml20">工具产品</span>
+            <span class="c-i-icon"></span>
+          </div>
+          <div class="r-cell-item">
+            <img src="./images/page5/b8.png" alt="" class="inline" width="60" height="auto">
+            <span class="inline ml20">教育培训</span>
+            <span class="c-i-icon"></span>
+          </div>
+          <div class="r-cell-item">
+            <img src="./images/page5/b9.png" alt="" class="inline" width="60" height="auto">
+            <span class="inline ml20">游戏产品</span>
+            <span class="c-i-icon"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="banner-4 w100">
+      <div class="b4-title w80">
+        <span class="inline t1">视频团队</span>
+        <span class="inline t2 ml30">运营团队120人，分布在上海、北京等地，源源不断输出优质素材</span>
+      </div>
+      <div class="swiper-tab flex-between">
+        <div :class="['s-t-cell',swiper1===item.id?'active':'']" v-for="(item,index) in swiperNav1" :key="item.id" @click="swiperChange1(index)">{{item.text}}</div>
+      </div>
+      <div class="w80 relative">
+        <van-swipe :autoplay="5000" :initial-swipe="intSwiper1" @change="onChangeVideoSwiper" ref="swiperDom1">
+          <van-swipe-item class="van-swipe-item">
+            <div class="b4-sliper-item flex-between b4-sliper-item-1 w100">
+              <div class="l-text-wrap">
+                <div class="l-text-1 mt40">
+                  ACTOR <br/> RESOURCES
+                </div>
+                <div class="l-text-2 mt40">签约演员</div>
+                <div class="l-text-3 mt30">
+                利欧万圣签约大量毕业于上海戏剧学院、<br/>
+                北京电影学院、上海视觉艺术学院、<br/>
+                四川音乐学院、武汉艺术学院等集齐美貌<br/>
+                与演技于一身的专业演员超过300人。
+                </div>
+              </div>
+              <div class="b4-s-i-right text-right">
+                <img src="./images/page5/b10.png" alt=""  width="60%" height="auto" class="b4-s-i-img-1">
+              </div>
+            </div>
+          </van-swipe-item>
+          <van-swipe-item class="van-swipe-item">
+            <div class="b4-sliper-item flex-between b4-sliper-item-2">
+              <div class="l-text-wrap">
+                <div class="l-text-1">
+                  场景资源
+                </div>
+                <div class="l-text-2 mt30 flex-between">
+                  <div>
+                    <div class="t2-tit">1500m²+</div>
+                    <div class="t2-txt">拍摄基地</div>
+                  </div>
+                  <div>
+                    <div class="t2-tit">100+</div>
+                    <div class="t2-txt">丰富场景</div>
+                  </div>
+                </div>
+                <div class="l-text-3 mt30">
+                  可满足各行各业不同类型、不同风格、<br/>
+                  同地域的场景需要<br/>
+                  且具备特殊场景租借资质
+                </div>
+                <div class="l-text-4">
+                 2022
+                </div>
+              </div>
+              <div class="b4-s-i-right text-right">
+                <img src="./images/page5/b11.png" alt="" width="60%" height="auto" class="b4-s-i-img-2">
+              </div>
+            </div>
+          </van-swipe-item>
+          <van-swipe-item class="van-swipe-item">
+            <div class="b4-sliper-item flex-between b4-sliper-item-3">
+              <div class="l-text-wrap">
+                <div class="l-text-1">
+                  专业设备 高效产出
+                </div>
+                <div class="l-text-2 mt40">
+                  独立短视频创意中心<br/>
+                  影视级专业拍摄设备<br/>
+                  可日产创意短视频400+个<br/>
+                  包含情景剧、创意剪辑等
+                </div>
+              </div>
+              <div class="b4-s-i-right text-right">
+                <img src="./images/page5/b12.png" alt=""  width="70%" height="auto" class="b4-s-i-img-3">
+              </div>
+            </div>
+          </van-swipe-item>
+        </van-swipe>
+      </div>
+    </div>
+
+    <div class="banner-5 w100">
+      <div class="b5-title w80">
+        <span class="inline t1">视频团队</span>
+        <span class="inline t2 ml30">运营团队120人，分布在上海、北京等地，源源不断输出优质素材</span>
+      </div>
+      <div class="swiper-tab flex-between w100">
+        <div :class="['s-t-cell',swiper2===item.id?'active':'']" v-for="(item,index) in swiperNav2" :key="item.id" @click="swiperChange2(index)">{{item.text}}</div>
+      </div>
+      <div class="w80 relative">
+
+        <van-swipe :autoplay="5000" :initial-swipe="intSwiper1" @change="onChangeVideoSwiper2" ref="swiperDom2">
+         
+          <van-swipe-item class="van-swipe-item">
+            <div class="b5-sliper-item b5-sliper-item-1 w100">
+              <div class="l-text-wrap flex-between">
+                <div class="l-text-1">
+                  <div class="t-1-top text-content">
+                    <div class="t1-t-tit">主播</div>
+                    <div class="t1-t-txt mt10">
+                      根据品牌定位安排优质主播直播，<br/>
+                      进行针对性品牌培训与学习<br/>
+                      主播根据品牌方案排期在平台进行直播<br/>
+                      利用粉丝互动，增强粉丝粘性，<br/>
+                      引导粉丝下单，活跃直播气氛
+                    </div>
+                  </div>
+                  <div class="t-1-bottom mt40">
+                    <div class="t-1-top text-content">
+                      <div class="t1-t-tit">助播及场控</div>
+                      <div class="t1-t-txt mt10">
+                        协助主播进行商品信息口播，调节直播气氛。<br/>
+                        熟练运用中控台，并进行直播场控。<br/>
+                        现场气氛营造及现场特殊情况处理。<br/>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="l-text-2">
+                  <img src="./images/page5/b13.png" alt=""  width="200" height="auto" class="b5-img-1">
+                </div>
+                <div class="l-text-3">
+                  <div class="t-1-top text-content">
+                    <div class="t1-t-tit">直播及商品运营</div>
+                    <div class="t1-t-txt mt10">
+                      安排主播排期，并同步至主播及相关工作人员<br/>
+                      直播产品对接样品整理直播<br/>
+                      脚本整理等保证充分直播准备<br/>
+                      记录主播每日直播数据粉丝数<br/>
+                      直播内容商品情况，中控及后台数据<br/>
+                      并分析反馈至运营经理及主播
+                    </div>
+                  </div>
+                  <div class="t-1-bottom mt40">
+                    <div class="t-1-top text-content">
+                      <div class="t1-t-tit">运营复盘</div>
+                      <div class="t1-t-txt mt10">
+                        直播数据总结归纳<br/> 
+                        优化流程关键点
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="l-text-4 text-center mt30">根据品牌定位及需求搭建直播间和运营团队</div>
+            </div>
+          </van-swipe-item>
+
+          <van-swipe-item class="van-swipe-item">
+            <div class="b5-sliper-item b5-sliper-item-2">
+              <div class="l-text-wrap text-center">
+                <div class="l-text-1 mt40">
+                 <span class="t1-1">打造标准化主播主播的经验是销量的基本保证</span>
+                 <span class="t1-2">销量的基本保证</span>
+                </div>
+                <div class="l-text-2 flex-between">
+                  <div class="t2-cell mt40">
+                    <img src="./images/page5/b14.png" alt=""  class="b5-img-2">
+                    <div class="mt20">达人直播/店铺经验</div>
+                  </div>
+                  <div class="t2-cell mt40">
+                    <img src="./images/page5/b15.png" alt=""  class="b5-img-2">
+                    <div class="mt20">MCN机构孵化选人</div>
+                  </div>
+                  <div class="t2-cell mt40">
+                    <img src="./images/page5/b16.png" alt=""  class="b5-img-2">
+                    <div class="mt20">类目专业度</div>
+                  </div>
+                  <div class="t2-cell mt40">
+                    <img src="./images/page5/b17.png" alt=""  class="b5-img-2">
+                    <div class="mt20">气质形象</div>
+                  </div>
+                  <div class="t2-cell mt40">
+                    <img src="./images/page5/b18.png" alt=""  class="b5-img-2">
+                    <div class="mt20">品牌理解力</div>
+                  </div>
+                </div>
+                <div class="l-text-3 mt40">
+                  利欧万圣现有店铺直播主播团队180人+候选池主播均为最低直播经验一年的店播及达人主播<br/>
+                  过品话术，活动话术，转粉话术，逼单话术，产品展示能力、产品理解能力等月均有等级评定
+                </div>
+                <div class="l-text-4 mt40">
+                  依据整月数据来对主播直播时间和对应的投放时间做调整，直播时间内最大化的投放能够得到最大化的转化
+                </div>
+              </div>
+            </div>
+          </van-swipe-item>
+
+          <van-swipe-item class="van-swipe-item">
+            <div class="b5-sliper-item b5-sliper-item-3">
+              <div class="l-text-wrap flex-between">
+                <div class="l-text-1 text-left">
+                  <img src="./images/page5/b19.png" alt=""  class="b5-img-3" width="80%" height="auto">
+                </div>
+                <div class="l-text-2 text-right">
+                  <img src="./images/page5/b20.png" alt=""  class="b5-img-3" width="80%" height="auto">
+                </div>
+              </div>
+            </div>
+          </van-swipe-item>
+
+          <van-swipe-item class="van-swipe-item">
+            <div class="b5-sliper-item b5-sliper-item-4">
+              <div class="l-text-wrap">
+                <div class="l-text-1 text-center">
+                  <span class="t1-tit">规范项目流程闭环</span>
+                  <span class="t1-txt">阶段性环节落实</span>
+                </div>
+                <div class="l-text-2 flex-between mt40">
+                  <div class="t2-item-cell">
+                    <div class="i-c-tit flex-between">
+                      明确方向
+                      <div class="i-c-arrow"></div>
+                    </div>
+                    <div class="i-c-txt mt40">
+                      合作内容<br/> 目标确认
+                    </div>
+                  </div>
+                  <div class="t2-item-cell">
+                    <div class="i-c-tit flex-between">项目流程
+                      <div class="i-c-arrow"></div>
+                    </div>
+                    <div class="i-c-txt mt40">
+                      运营对接人确认<br/>
+                      主播确认<br/>
+                      场景设计造景<br/>
+                      历史数据同步<br/>
+                      店铺运营计划同步
+                    </div>
+                  </div>
+                  <div class="t2-item-cell">
+                    <div class="i-c-tit flex-between">直播计划设计 
+                      <div class="i-c-arrow"></div>
+                    </div>
+                    <div class="i-c-txt mt40">
+                      直播排期规划<br/>
+                      货品陈列规划<br/>
+                      活动权益设计<br/>
+                      运营计划反馈确认
+                    </div>
+                  </div>
+                  <div class="t2-item-cell">
+                    <div class="i-c-tit">直播执行</div>
+                    <div class="i-c-txt mt40">
+                      样品寄样<br/>
+                      主播培训<br/>
+                      试播<br/>
+                      数据复盘<br/>
+                      优化调整
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </van-swipe-item>
+        </van-swipe>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="w80 f-content">
+        <div class=" w100 flex-between">
+          <img src="./images/logo2.png" alt="" width="90" height="auto">
+          <ul class="f-c-right flex-between">
+            <li :class="['n-r-li' ,item.active?'active':'']" v-for="(item,index) in nav" :key="index">
+              <a :href="item.link" class="n-r-link">{{item.text}}</a>
+            </li>
+          </ul>
+        </div>
+        <div class="f-c-t1 mt20">
+          <div class="mt10">
+            <span class="inline">联系方式:</span>
+          </div>
+          <div class="inline mt10">
+            <span class="inline">上海：021-60158688</span>
+          </div>
+          <div class="inline mt10 ml20">北京：010-87983600</div>
+        </div>
+        <div class="f-c-t2 mt20">
+          <div class="inline">© 2022 LEO WANGSHENG AD. All Rights Reserved </div>
+          <div class="inline ml20">
+            <img src="./images/galogo.png" alt="" width="19" height="auto" class="inline">
+            <a href="" class="inline">沪ICP备0000号</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="./js/jquery-3.0.0.min.js"></script>
+  <script src="./js/vue.js"></script>
+  <script src="./js/vant.min.js"></script>
+  <script>
+    var App = new Vue({
+        el:'#app',
+        data(){
+          return {
+            nav:[ 
+              {text:'公司简介',link:'./index',active:false},
+              {text:'关于万圣',link:'./about',active:false},
+              {text:'智能投放',link:'./putin',active:false},
+              {text:'移动营销',link:'./market',active:false},
+              {text:'团队配置',link:'./team',active:true},
+              {text:'加入我们',link:'./join',active:false}
+            ],
+            iconFlage:false,
+            intSwiper1:0,
+            swiper1:'n1',
+            swiperNav1:[
+              {id:'n1',text:'专业演员'},
+              {id:'n2',text:'丰富场景'},
+              {id:'n3',text:'专业设备'}
+            ],
+            swiper2:'n1',
+            swiperNav2:[
+              {id:'n1',text:'定制服务'},
+              {id:'n2',text:'主播优势'},
+              {id:'n3',text:'直播间'},
+              {id:'n4',text:'服务流程'}
+            ]
+          }
+        },
+        mounted:function() {
+          
+        },
+        methods: {
+          changeNav:function(){
+            if(this.iconFlage){
+              this.iconFlage = false
+              console.log('this.iconFlage==>',this.iconFlage)
+            }else{
+              this.iconFlage = true
+              console.log('this.iconFlage2==>',this.iconFlage)
+            }
+          },
+          onChangeVideoSwiper:function(index){
+            this.swiper1 = this.swiperNav1[index].id
+          },
+          onChangeVideoSwiper2:function(index){
+            this.swiper2 = this.swiperNav2[index].id
+          },
+          swiperChange1:function(index){
+            this.swiper1 = this.swiperNav1[index].id
+            this.$refs.swiperDom1.swipeTo(index);
+          },
+          swiperChange2:function(index){
+            this.swiper2 = this.swiperNav2[index].id
+            this.$refs.swiperDom2.swipeTo(index);
+          },
+        }
+    })
+    window.onload = function(){
+      document.getElementById('loading-box').remove()
+    }
+  </script>
+</body>
+</html>

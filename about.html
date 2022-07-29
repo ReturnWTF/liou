@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <title>利欧万圣官网-关于万圣</title>
+    <meta name="keywords" content="利欧万圣">
+    <meta name="description" content="利欧万圣">
+    <link rel="stylesheet" href="./css/vant.min.css">
+    <link rel="stylesheet" href="./css/global.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <!-- 小于IE10提示升级浏览器 -->
+    <script>
+        window.AESKey = '';
+        // 判断浏览器是否支持placeholder属性
+        function isSupportPlaceholder() {
+            var input = document.createElement('input');
+            return 'placeholder' in input;
+        };
+        (function() {
+            //判断是否是IE浏览器，包括Edge浏览器
+            function IEVersion() {
+                //取得浏览器的userAgent字符串
+                var userAgent = navigator.userAgent;
+                //判断是否IE浏览器
+                var isIE = userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1;
+                if (isIE) {
+                    var reIE = new RegExp("MSIE (\\d+\\.\\d+);");
+                    reIE.test(userAgent);
+                    var fIEVersion = parseFloat(RegExp["$1"]);
+                    if (fIEVersion < 10 || !isSupportPlaceholder()) {
+                        return true;
+                    }
+                } else {
+                    return false;
+                }
+            }
+            var tpl = ['<div style="padding:0;margin:0; position: fixed;top:0;left: 0;z-index: 1000;width: 100%;height: 100%;background-color: #fff;">',
+
+                '<div style="position: absolute;top: 50%;left: 0;width: 100%;margin-top: -60px;color:#333;font-size:20px;line-height:40px;text-align: center;">',
+
+                '<p>您正在使用的浏览器版本过低，为了您的最佳体验，请先升级您的浏览器。</p>',
+
+                '<p>如果您的浏览器是最新版本，请您使用该浏览器极速模式访问即可。</p>',
+
+                '<p><a style="color: #0187ff !important;" target="_blank" href="http://support.dmeng.net/upgrade-your-browser.html">立即升级</a></p>',
+
+                '</div>',
+
+                '</div>'
+
+            ].join('');
+            if (IEVersion()) {
+              document.write(tpl);
+            }
+        })();
+    </script>
+</head>
+<body>
+  <div style="position: fixed;top:0;left: 0;width: 100%;height: 100%;background:rgba(0,0,0,0.8);z-index:100000;" id="loading-box" class="flex-center">
+    <div class="loading-text box">
+        <div class="loader loader-01"></div>
+        <div style="font-size:16px;margin-top:20px;">
+            努力加载中请稍后..
+        </div>
+    </div>
+  </div>
+  <main class="w100 main-wrap relative page-2" id="app">
+   
+    <header class="nav flex-between">
+      <div class="n-left">
+        <img src="./images/logo.png" alt="" width="158" height="auto">
+      </div>
+      <ul class="n-right flex-between">
+        <li :class="['n-r-li' ,item.active?'active':'']" v-for="(item,index) in nav" :key="index">
+          <a :href="item.link" class="n-r-link">{{item.text}}</a>
+        </li>
+      </ul>
+    </header>
+
+    <header class="nav-mobile flex-between w100">
+      <div class="n-left">
+        <img src="./images/logo.png" alt="" width="158" height="auto" class="logo-img">
+      </div>
+      <div @click="changeNav">
+        <div v-if="iconFlage">
+          <van-icon name="ascending" size="34"  />
+        </div>
+        <div v-else>
+          <van-icon name="descending" size="34"/>
+        </div>
+      </div>
+      <van-popup v-model="iconFlage" position="top" :style="{ height: '50%','margin-top':'46px'}" :overlay="true" lockScroll="false" get-container="main"	class="nav-mobile-ul">
+        <ul class="n-right flex-between">
+          <li :class="['n-r-li' ,item.active?'active':'']" v-for="(item,index) in nav" :key="index">
+            <a :href="item.link" class="n-r-link">{{item.text}} ></a>
+          </li>
+        </ul>
+      </van-popup>
+    </header>
+
+
+    <div class="banner-1 flex-center">
+      <div class="w80 b1-text-wrap">
+        <div class="b1-t1-wrap inline">
+          <span>关于万圣</span>
+          <span class="ml10">/</span>
+        </div>
+        <div class="b1-t2-wrap inline">
+          <span class="b1-text-2">About</span>
+          <span class="b1-text-3">Wansheng</span>
+        </div>
+      </div>
+    </div>
+    <div class="b1-bottom-box w80 relative">
+      <div class="b-b-block">深挖品牌线上直播运营的痛点 链接流量与品牌</div>
+    </div>
+
+    <div class="banner-2 flex-between w80">
+      <div class="b2-t1-wrap text-left relative">
+       <div class="b2-t1-text">发展历程</div>
+       <img src="./images/page2/b2.png" width="100%" height="auto" class="block b2-img-1">
+       <div class="w100 text-right b2-img-2-box">
+         <img src="./images/page2/b3.png" width="50%" height="auto" class="b2-img-2">
+       </div>
+      </div>
+    </div>
+
+    <div class="banner-3 flex-center relative">
+      <div class="w80 text-left">
+        <div class="b3-text-1">以数字和创新重构营销</div>
+        <div class="b3-text-2 mt20">成为可持续发展的行业标杆</div>
+      </div>
+    </div>
+
+    <div class="banner-4 w80 pc-banner-4">
+      <div class="b4-title">为什么选择万圣</div>
+      <div class="w100 flex-between relative">
+        <div class="b4-left">
+          <div class="b4-lf-item b4-lf-item-1">
+            <div class="i-title">专业优势</div>
+            <div class="i-text mt20">10年信息流广告经验，<br/>身后的行业和项目积累，<br/>具备独有的素材资源库以及项目经验库</div>
+            <div class="relative">
+              <div class="i-line"></div>
+            </div>
+          </div>
+          <div class="b4-lf-item b4-lf-item-2">
+            <div class="i-title">团队优势</div>
+            <div class="i-text mt20">完善的视频、商务、运营人员<br/>配置，总人数超300人，专业的<br/>运营团队，一对一的服务</div>
+            <div class="relative">
+              <div class="i-line"></div>
+            </div>
+          </div>
+        </div>
+        <div class="b4-center">
+          <img src="./images/page2/b5.png" alt="" width="" class="b4-icon-2">
+        </div>
+        <div class="b4-right">
+          <div class="b4-r-item b4-r-item-1 relative">
+            <div class="i-title">流量优势</div>
+            <div class="i-text mt20">深度媒体合作关系，不仅<br/>作为巨量和腾讯两大媒体<br/>的核心代理更有各种类型流量</div>
+            <div class="relative">
+              <div class="i-line"></div>
+            </div>
+          </div>
+          <div class="b4-r-item b4-r-item-2 relative">
+            <div class="i-title">技术优势</div>
+            <div class="i-text mt20">自行研发泰坦工具，帮助<br/>广告主优化投放、跨账户<br/>一键操作，提高效率</div>
+            <div class="relative">
+              <div class="i-line"></div>
+            </div>
+          </div>
+          <div class="b4-r-item b4-r-item-3 relative">
+            <div class="i-title">资金保障</div>
+            <div class="i-text mt20">集团背景，媒体核代理<br/>资金稳定且充足</div>
+            <div class="relative">
+              <div class="i-line"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="banner-4 w80 mobile-banner-4">
+      <div class="b4-title">为什么选择万圣</div>
+      <div class="w100 flex-between relative">
+        <div>
+          <div class="b4-left">
+            <div class="b4-lf-item b4-lf-item-1 mt30">
+              <div class="i-title">专业优势</div>
+              <div class="i-text mt20">10年信息流广告经验，<br/>身后的行业和项目积累，<br/>具备独有的素材资源库以及项目经验库</div>
+            </div>
+            <div class="b4-lf-item b4-lf-item-2 mt30">
+              <div class="i-title">团队优势</div>
+              <div class="i-text mt20">完善的视频、商务、运营人员<br/>配置，总人数超300人，专业的<br/>运营团队，一对一的服务</div>
+            </div>
+          </div>
+          <div class="b4-right">
+            <div class="b4-r-item b4-r-item-1 relative mt30">
+              <div class="i-title">流量优势</div>
+              <div class="i-text mt20">深度媒体合作关系，不仅<br/>作为巨量和腾讯两大媒体<br/>的核心代理更有各种类型流量</div>
+            </div>
+            <div class="b4-r-item b4-r-item-2 relative mt30">
+              <div class="i-title">技术优势</div>
+              <div class="i-text mt20">自行研发泰坦工具，帮助<br/>广告主优化投放、跨账户<br/>一键操作，提高效率</div>
+            </div>
+            <div class="b4-r-item b4-r-item-3 relative mt30">
+              <div class="i-title">资金保障</div>
+              <div class="i-text mt20">集团背景，媒体核代理<br/>资金稳定且充足</div>
+            </div>
+          </div>
+        </div>
+        <div class="b4-center">
+          <img src="./images/page2/b5.png" alt="" width="" class="b4-icon-2">
+        </div>
+
+      </div>
+    </div>
+
+    <div class="banner-5 w100 relative">
+      <div class="b5-text-1 w80">Our Team</div>
+      <div class="b5-text-2 flex-between w80">
+        <div class="b5-t2-left">
+          <div class="t2-l-1">
+            每个客户配备不少于<br/>
+            10人的服务团队<br/>
+            -
+          </div>
+          <div class="t2-l-2">
+            利欧万圣为每一个客配置精英级水准服务团队、<br/>配备专属的客户服务团队、运营优化师团队<br/>和活跃一线的素材创作团队，让您的产品<br/>投放通过万圣聚合变现达到甚至超出预期目标。
+          </div>
+        </div>
+        <div class="b5-t2-right">
+          <div class="t2-r-1 text-center">
+            <img src="./images/page2/b8.png" alt="" class="t2-r-1-img-1 rotate" width="100%" height="auto">
+            <img src="./images/page2/b9.png" alt="" class="t2-r-1-img-2" width="300" height="auto">
+            <div class="t2-r-1-text t2-r-1-text-1 absolute text-center">
+              <div class="r-t-1-tit">优化支持</div>
+              <div class="r-t-1-txt mt5">-产品优化-</div>
+            </div>
+            <div class="t2-r-1-text t2-r-1-text-2 absolute text-center">
+              <div class="r-t-1-tit">素材支持</div>
+              <div class="r-t-1-txt mt5">-产品影响力-</div>
+            </div>
+            <div class="t2-r-1-text t2-r-1-text-3 absolute text-center">
+              <div class="r-t-1-tit">客服支持</div>
+              <div class="r-t-1-txt mt5">-产品舆论-</div>
+            </div>
+            <div class="t2-r-1-text t2-r-1-text-4 absolute text-center">
+              <div class="r-t-1-tit">媒介支持</div>
+              <div class="r-t-1-txt mt5">-开户、媒体动向侦查-</div>
+            </div>
+            <div class="t2-r-1-text t2-r-1-text-5 absolute text-center">
+              <div class="r-t-1-tit">销售支持</div>
+              <div class="r-t-1-txt mt5">-产品传播-</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="banner-6 w80 relative ">
+      <div class="b6-text-1 flex-between">
+        <div class="dev-cell">
+          全国驻场一对一服务<br/>
+          最大效率满足客户需求<br/>
+          深厚的媒体方资源<br/>
+        </div>
+        <div class="dev-cell">
+          全国驻场三年以上买量+账户实操经验<br/>
+          亿级消耗金牌运营多行业，多渠道成功经验
+        </div>
+        <div class="dev-cell">
+          月视频运力1万条以上科班出身<br/>
+          深厚视频制作经验<br/>
+          多场景应用，满足客户不同投放需求
+        </div>
+      </div>
+      <div class="b6-center-bg text-center mt40">
+       <img src="./images/page2/b10.png" alt="" class="b6-img-1">
+      </div>
+      <div class="b6-text-2 mt30 flex-between">
+        <div class="dev-cell">
+          7*24小时轮值在线<br/>
+          多年客户执行对接经验
+        </div>
+        <div class="dev-cell">
+          全部通过优化师认证 <br/>
+          严格考核，培训上岗，敢拼敢打，效率高效
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="w80 f-content">
+        <div class=" w100 flex-between">
+          <img src="./images/logo2.png" alt="" width="90" height="auto">
+          <ul class="f-c-right flex-between">
+            <li :class="['n-r-li' ,item.active?'active':'']" v-for="(item,index) in nav" :key="index">
+              <a :href="item.link" class="n-r-link">{{item.text}}</a>
+            </li>
+          </ul>
+        </div>
+        <div class="f-c-t1 mt20">
+          <div class="mt10">
+            <span class="inline">联系方式:</span>
+          </div>
+          <div class="inline mt10">
+            <span class="inline">上海：021-60158688</span>
+          </div>
+          <div class="inline mt10 ml20">北京：010-87983600</div>
+        </div>
+        <div class="f-c-t2 mt20">
+          <div class="inline">© 2022 LEO WANGSHENG AD. All Rights Reserved </div>
+          <div class="inline ml20">
+            <img src="./images/galogo.png" alt="" width="19" height="auto" class="inline">
+            <a href="" class="inline">沪ICP备0000号</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="./js/jquery-3.0.0.min.js"></script>
+  <script src="./js/vue.js"></script>
+  <script src="./js/vant.min.js"></script>
+  <script>
+    var App = new Vue({
+        el:'#app',
+        data(){
+          return {
+            nav:[ 
+              {text:'公司简介',link:'./index',active:false},
+              {text:'关于万圣',link:'./about',active:true},
+              {text:'智能投放',link:'./putin',active:false},
+              {text:'移动营销',link:'./market',active:false},
+              {text:'团队配置',link:'./team',active:false},
+              {text:'加入我们',link:'./join',active:false}
+            ],
+            iconFlage:false,
+            intSwiper1:0,
+            swiper1:'n1',
+            swiperNav1:[
+              {id:'n1',text:'专业演员'},
+              {id:'n2',text:'丰富场景'},
+              {id:'n3',text:'专业设备'}
+            ],
+            swiper2:'n1',
+            swiperNav2:[
+              {id:'n1',text:'定制服务'},
+              {id:'n2',text:'主播优势'},
+              {id:'n3',text:'直播间'},
+              {id:'n4',text:'服务流程'}
+            ]
+          }
+        },
+        mounted:function() {
+          
+        },
+        methods: {
+          changeNav:function(){
+            if(this.iconFlage){
+              this.iconFlage = false
+              console.log('this.iconFlage==>',this.iconFlage)
+            }else{
+              this.iconFlage = true
+              console.log('this.iconFlage2==>',this.iconFlage)
+            }
+          },
+          onChangeVideoSwiper:function(index){
+            this.swiper1 = this.swiperNav1[index].id
+          },
+          onChangeVideoSwiper2:function(index){
+            this.swiper2 = this.swiperNav2[index].id
+          },
+          swiperChange1:function(index){
+            this.swiper1 = this.swiperNav1[index].id
+            this.$refs.swiperDom1.swipeTo(index);
+          },
+          swiperChange2:function(index){
+            this.swiper2 = this.swiperNav2[index].id
+            this.$refs.swiperDom2.swipeTo(index);
+          },
+        }
+    })
+    window.onload = function(){
+      document.getElementById('loading-box').remove()
+    }
+  </script>
+</body>
+</html>

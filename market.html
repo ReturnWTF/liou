@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <title>利欧万圣官网-移动营销</title>
+    <meta name="keywords" content="利欧万圣">
+    <meta name="description" content="利欧万圣">
+    <link rel="stylesheet" href="./css/vant.min.css">
+    <link rel="stylesheet" href="./css/global.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <!-- 小于IE10提示升级浏览器 -->
+    <script>
+        window.AESKey = '';
+        // 判断浏览器是否支持placeholder属性
+        function isSupportPlaceholder() {
+            var input = document.createElement('input');
+            return 'placeholder' in input;
+        };
+        (function() {
+            //判断是否是IE浏览器，包括Edge浏览器
+            function IEVersion() {
+                //取得浏览器的userAgent字符串
+                var userAgent = navigator.userAgent;
+                //判断是否IE浏览器
+                var isIE = userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1;
+                if (isIE) {
+                    var reIE = new RegExp("MSIE (\\d+\\.\\d+);");
+                    reIE.test(userAgent);
+                    var fIEVersion = parseFloat(RegExp["$1"]);
+                    if (fIEVersion < 10 || !isSupportPlaceholder()) {
+                        return true;
+                    }
+                } else {
+                    return false;
+                }
+            }
+            var tpl = ['<div style="padding:0;margin:0; position: fixed;top:0;left: 0;z-index: 1000;width: 100%;height: 100%;background-color: #fff;">',
+
+                '<div style="position: absolute;top: 50%;left: 0;width: 100%;margin-top: -60px;color:#333;font-size:20px;line-height:40px;text-align: center;">',
+
+                '<p>您正在使用的浏览器版本过低，为了您的最佳体验，请先升级您的浏览器。</p>',
+
+                '<p>如果您的浏览器是最新版本，请您使用该浏览器极速模式访问即可。</p>',
+
+                '<p><a style="color: #0187ff !important;" target="_blank" href="http://support.dmeng.net/upgrade-your-browser.html">立即升级</a></p>',
+
+                '</div>',
+
+                '</div>'
+
+            ].join('');
+            if (IEVersion()) {
+              document.write(tpl);
+            }
+        })();
+    </script>
+</head>
+<body>
+  <div style="position: fixed;top:0;left: 0;width: 100%;height: 100%;background:rgba(0,0,0,0.8);z-index:100000;" id="loading-box" class="flex-center">
+    <div class="loading-text box">
+        <div class="loader loader-01"></div>
+        <div style="font-size:16px;margin-top:20px;">
+            努力加载中请稍后..
+        </div>
+    </div>
+  </div>
+  <main class="w100 main-wrap relative page-4" id="app">
+   
+    <header class="nav flex-between">
+      <div class="n-left">
+        <img src="./images/logo.png" alt="" width="158" height="auto">
+      </div>
+      <ul class="n-right flex-between">
+        <li :class="['n-r-li' ,item.active?'active':'']" v-for="(item,index) in nav" :key="index">
+          <a :href="item.link" class="n-r-link">{{item.text}}</a>
+        </li>
+      </ul>
+    </header>
+
+    <header class="nav-mobile flex-between w100">
+      <div class="n-left">
+        <img src="./images/logo.png" alt="" width="158" height="auto" class="logo-img">
+      </div>
+      <div @click="changeNav">
+        <div v-if="iconFlage">
+          <van-icon name="ascending" size="34"  />
+        </div>
+        <div v-else>
+          <van-icon name="descending" size="34"/>
+        </div>
+      </div>
+      <van-popup v-model="iconFlage" position="top" :style="{ height: '50%','margin-top':'46px'}" :overlay="true" lockScroll="false" get-container="main"	class="nav-mobile-ul">
+        <ul class="n-right flex-between">
+          <li :class="['n-r-li' ,item.active?'active':'']" v-for="(item,index) in nav" :key="index">
+            <a :href="item.link" class="n-r-link">{{item.text}} ></a>
+          </li>
+        </ul>
+      </van-popup>
+    </header>
+
+
+    <div class="banner-1 flex-center">
+      <div class="w80 b1-text-wrap">
+        <div class="b1-t1-wrap inline">
+          <span>移动营销</span>
+          <span class="ml10">/</span>
+        </div>
+        <div class="b1-t2-wrap inline">
+          <span class="b1-text-2">Mobile</span>
+          <span class="b1-text-3">Marketing</span>
+        </div>
+      </div>
+    </div>
+    <div class="b1-bottom-box w80 relative">
+      <div class="b-b-block">营销投放专家——为每一位客户“量身定做”</div>
+    </div>
+
+    <div class="banner-2 flex-between w80">
+      <div class="b2-t1-wrap text-center relative">
+        <div class="">从
+          <span class="b2-t2-text">客户端千人千面投放</span>到<br/> 
+          <span class="b2-t3-text">效果端持续生效</span>的闭环服务
+        </div>
+        <div class="w100 text-right b2-img-2-box mt20">
+          <img src="./images/page4/b2.png" width="100%" height="auto" class="b2-img-2">
+        </div>
+      </div>
+    </div>
+
+    <div class="banner-3 text-center relative w80">
+      <div class="">
+        <span class="b3-text-1">基于</span>
+        <span class="b3-text-2">流量思维</span>
+        <span class="b3-text-3">的端到端全链路解决方案</span>
+      </div>
+      <div class="mt40 mb40">
+        <img src="./images/page4/b3.png" alt="" width="100%" height="auto">
+      </div>
+    </div>
+
+    <div class="banner-4 flex-between relative w80">
+      <div class="b4-cell-item">
+        <img src="./images/page4/b4.png" alt="" width="60" height="auto" class="">
+        <div class="c-i-tit mt20">有态度</div>
+        <div class="c-i-text mt20">对品牌和营销有独到见解</div>
+      </div>
+      <div class="cell-line"></div>
+      <div class="b4-cell-item">
+        <img src="./images/page4/b5.png" alt="" width="60" height="auto" class="">
+        <div class="c-i-tit mt20">有态度</div>
+        <div class="c-i-text mt20">对品牌和营销有独到见解</div>
+      </div>
+      <div class="cell-line cell-line-2"></div>
+      <div class="b4-cell-item">
+        <img src="./images/page4/b6.png" alt="" width="60" height="auto" class="">
+        <div class="c-i-tit mt20">有态度</div>
+        <div class="c-i-text mt20">对品牌和营销有独到见解</div>
+      </div>
+      <div class="cell-line"></div>
+      <div class="b4-cell-item">
+        <img src="./images/page4/b7.png" alt="" width="60" height="auto" class="">
+        <div class="c-i-tit mt20">有态度</div>
+        <div class="c-i-text mt20">对品牌和营销有独到见解</div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="w80 f-content">
+        <div class=" w100 flex-between">
+          <img src="./images/logo2.png" alt="" width="90" height="auto">
+          <ul class="f-c-right flex-between">
+            <li :class="['n-r-li' ,item.active?'active':'']" v-for="(item,index) in nav" :key="index">
+              <a :href="item.link" class="n-r-link">{{item.text}}</a>
+            </li>
+          </ul>
+        </div>
+        <div class="f-c-t1 mt20">
+          <div class="mt10">
+            <span class="inline">联系方式:</span>
+          </div>
+          <div class="inline mt10">
+            <span class="inline">上海：021-60158688</span>
+          </div>
+          <div class="inline mt10 ml20">北京：010-87983600</div>
+        </div>
+        <div class="f-c-t2 mt20">
+          <div class="inline">© 2022 LEO WANGSHENG AD. All Rights Reserved </div>
+          <div class="inline ml20">
+            <img src="./images/galogo.png" alt="" width="19" height="auto" class="inline">
+            <a href="" class="inline">沪ICP备0000号</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="./js/jquery-3.0.0.min.js"></script>
+  <script src="./js/vue.js"></script>
+  <script src="./js/vant.min.js"></script>
+  <script>
+    var App = new Vue({
+        el:'#app',
+        data(){
+          return {
+            nav:[ 
+              {text:'公司简介',link:'./index',active:false},
+              {text:'关于万圣',link:'./about',active:false},
+              {text:'智能投放',link:'./putin',active:false},
+              {text:'移动营销',link:'./market',active:true},
+              {text:'团队配置',link:'./team',active:false},
+              {text:'加入我们',link:'./join',active:false}
+            ],
+            iconFlage:false,
+            intSwiper1:0,
+            swiper1:'n1',
+            swiperNav1:[
+              {id:'n1',text:'专业演员'},
+              {id:'n2',text:'丰富场景'},
+              {id:'n3',text:'专业设备'}
+            ],
+            swiper2:'n1',
+            swiperNav2:[
+              {id:'n1',text:'定制服务'},
+              {id:'n2',text:'主播优势'},
+              {id:'n3',text:'直播间'},
+              {id:'n4',text:'服务流程'}
+            ]
+          }
+        },
+        mounted:function() {
+          
+        },
+        methods: {
+          changeNav:function(){
+            if(this.iconFlage){
+              this.iconFlage = false
+              console.log('this.iconFlage==>',this.iconFlage)
+            }else{
+              this.iconFlage = true
+              console.log('this.iconFlage2==>',this.iconFlage)
+            }
+          },
+          onChangeVideoSwiper:function(index){
+            this.swiper1 = this.swiperNav1[index].id
+          },
+          onChangeVideoSwiper2:function(index){
+            this.swiper2 = this.swiperNav2[index].id
+          },
+          swiperChange1:function(index){
+            this.swiper1 = this.swiperNav1[index].id
+            this.$refs.swiperDom1.swipeTo(index);
+          },
+          swiperChange2:function(index){
+            this.swiper2 = this.swiperNav2[index].id
+            this.$refs.swiperDom2.swipeTo(index);
+          },
+        }
+    })
+    window.onload = function(){
+      document.getElementById('loading-box').remove()
+    }
+  </script>
+</body>
+</html>
